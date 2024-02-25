@@ -1,0 +1,14 @@
+export btc_data_dir=
+export ordi_data_dir=
+
+export btc_rpc_host=
+export btc_rpc_user=
+export btc_rpc_pass=
+
+use ordi::*;
+
+let mut ordi = Ordi::new(Options::default())?;
+ordi.when_inscribe(inscribe_callback);
+ordi.when_transfer(transfer_callback);
+ordi.start()?;
+ordi.close();
